@@ -1,0 +1,13 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="black_sylius_banner.front_repository.banner"
+                 class="Black\SyliusBannerPlugin\Repository\BannerRepository">
+            <argument type="service" id="doctrine" />
+            <argument>%black_sylius_banner.model.banner.class%</argument>
+        </service>
+    </services>
+</container>

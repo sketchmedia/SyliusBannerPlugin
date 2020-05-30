@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <imports>
+        <import resource="services/*.xml" />
+    </imports>
+
+    <services>
+        <service id="black_sylius_banner.slide_uploader"
+                 class="Black\SyliusBannerPlugin\Uploader\SlideUploader">
+            <argument type="service">
+                <service class="Gaufrette\Filesystem">
+                    <argument>%black_banner.uploader.filesystem%</argument>
+                    <factory service="knp_gaufrette.filesystem_map" method="get" />
+                </service>
+            </argument>
+            <argument type="service" id="Black\SyliusBannerPlugin\Generator\SlidePathGeneratorInterface" />
+        </service>
+
+        <service id="Black\SyliusBannerPlugin\Uploader\SlideUploaderInterface"
+                 alias="black_sylius_banner.slide_uploader" />
+
+        <service id="Black\SyliusBannerPlugin\Generator\SlidePathGeneratorInterface"
+            class="Black\SyliusBannerPlugin\Generator\UploadedSlidePathGenerator" />
+    </services>
+</container>

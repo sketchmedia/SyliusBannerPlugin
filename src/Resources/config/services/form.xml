@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="black_sylius_banner.form.type.banner"
+                 class="Black\SyliusBannerPlugin\UI\Form\Type\BannerType">
+            <argument>%black_sylius_banner.model.banner.class%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="black_sylius_banner.form.type.slide"
+                 class="Black\SyliusBannerPlugin\UI\Form\Type\SlideType">
+            <argument>%black_sylius_banner.model.slide.class%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="black_sylius_banner.form.type.slide_translation"
+                 class="Black\SyliusBannerPlugin\UI\Form\Type\SlideTranslationType">
+            <argument>%black_sylius_banner.model.slide_translation.class%</argument>
+            <tag name="form.type" />
+        </service>
+
+        <service id="black_sylius_banner.form.type.channel_filter"
+                 class="Black\SyliusBannerPlugin\UI\Form\Type\ChannelFilterType">
+            <argument type="service" id="sylius.repository.channel" />
+            <tag name="form.type" />
+        </service>
+    </services>
+</container>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="black_sylius_banner.ui.menu.admin_menu_listener"
+                 class="Black\SyliusBannerPlugin\UI\Menu\AdminMenuListener">
+            <tag name="kernel.event_listener" event="sylius.menu.admin.main"
+                 method="addAdminMenuItems" />
+        </service>
+
+        <service id="black_sylius_banner.ui.action.show_banner"
+                 class="Black\SyliusBannerPlugin\UI\Action\ShowBannerAction">
+            <argument type="service" id="black_sylius_banner.front_repository.banner" />
+            <argument type="service" id="sylius.context.channel" />
+            <argument type="service" id="twig" />
+
+            <tag name="controller.service_arguments" />
+        </service>
+    </services>
+</container>
