@@ -1,5 +1,5 @@
 {
-    "name": "black/sylius-banner-plugin",
+    "name": "sketchmedia/sylius-banner-plugin",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin"],
     "description": "Show Banner/slider/carousel in your shop",
